@@ -6,7 +6,6 @@ import {
   useState,
 } from 'react';
 import { WeatherStackResponse } from '../types';
-import { axiosWSInstance } from '../utils/axios';
 import { useWeather } from '../hooks/useWeather';
 
 interface WeatherContext {
