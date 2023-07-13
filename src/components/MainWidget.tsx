@@ -20,7 +20,7 @@ const MainWidget: FC<PropsWithChildren> = () => {
           </div>
           <div className="h-48">
             <WeatherIcon
-              weatherCode={143 || 113}
+              weatherCode={176 || 113}
               isDay={weather?.current?.is_day || true}
             />
           </div>
