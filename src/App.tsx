@@ -1,5 +1,5 @@
-import weather from './assets/svgs/SVG/partially_cloudy.svg';
 import './App.css';
+import MainWidget from './components/MainWidget';
 import PlaceSearch from './components/PlaceSearch';
 function App() {
   return (
@@ -13,10 +13,7 @@ function App() {
       </div>
       <div className="flex flex-grow container mx-auto overflow-y-auto">
         <div className="grid grid-cols-12 w-full">
-          <div className="glass col-span-6">
-            <h1 className="heading">A{process.env.GEOAPIFY_API_KEY}</h1>
-            <img src={weather} className="w-40 ml-auto" />
-          </div>
+          <MainWidget />
         </div>
       </div>
     </div>
