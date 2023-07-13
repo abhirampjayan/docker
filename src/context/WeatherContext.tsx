@@ -6,31 +6,41 @@ import {
   useState,
 } from 'react';
 import { WeatherStackResponse } from '../types';
+import { axiosWSInstance } from '../utils/axios';
+import { useWeather } from '../hooks/useWeather';
 
 interface WeatherContext {
-  isLoading: boolean;
+  // isLoading: boolean;
   weather: WeatherStackResponse | null;
 }
 
 const init: WeatherContext = {
-  isLoading: false,
+  // isLoading: false,
   weather: null,
 };
 
-const WeatherContext = createContext<WeatherContext>(init);
+export const WeatherContext = createContext<WeatherContext | null>(init);
 
 const WeatherContextProvider: FC<PropsWithChildren> = ({ children }) => {
-  const [isLoading, setIsLoading] = useState(false);
+  const abortController = new AbortController();
+  // const [isLoading, setIsLoading] = useState(false);
   const [weather, setWeather] = useState<WeatherStackResponse | null>(null);
+  const { getCurrentWeather } = useWeather();
+
+  
 
   useEffect(() => {
-    setIsLoading(true);
+    // setIsLoading(true);
+    getCurrentWeather().then((response) => {
+      setWeather(response.data);
+    });
+    // setIsLoading(false);
     return () => {
-      setIsLoading(false);
+      abortController.abort();
     };
   }, []);
 
-  const state = { isLoading, weather };
+  const state = { weather };
 
   return (
     <WeatherContext.Provider value={state}>{children}</WeatherContext.Provider>
