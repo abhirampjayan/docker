@@ -6,6 +6,7 @@ function WthunderRainIcon() {
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
       viewBox="0 0 87.47 84.96"
+      className="h-full"
     >
       <defs>
         <clipPath id="clippath">

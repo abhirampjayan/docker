@@ -6,8 +6,8 @@ import WeatherIcon from './WeatherIcon';
 const MainWidget: FC<PropsWithChildren> = () => {
   const { weather } = useWeatherContext();
   return (
-    <div className="glass col-span-6 flex flex-col h-min p-8">
-      <div className="flex items-center justify-around">
+    <div className="glass col-span-12 lg:col-span-6  flex flex-col h-full p-8">
+      <div className="flex items-center h-full justify-around">
         <div className="flex flex-col">
           <div className="flex justify-center font-medium text-2xl capitalize mb-6">
             <h2 className="flex items-center gap-2">

@@ -14,12 +14,15 @@ interface IWeatherContext {
   setWeather: React.Dispatch<
     React.SetStateAction<WeatherStackResponse | null>
   > | null;
+  setError?: React.Dispatch<React.SetStateAction<string>>;
+  error: string;
 }
 
 const init: IWeatherContext = {
   // isLoading: false,
   weather: null,
   setWeather: null,
+  error: '',
 };
 
 export const WeatherContext = createContext<IWeatherContext | null>(init);
@@ -29,17 +32,18 @@ const WeatherContextProvider: FC<PropsWithChildren> = ({ children }) => {
   // const [isLoading, setIsLoading] = useState(false);
   const [weather, setWeather] = useState<WeatherStackResponse | null>(null);
   const { getCurrentWeather } = useWeather();
+  const [error, setError] = useState('');
 
   useEffect(() => {
     // setIsLoading(true);
-    getCurrentWeather().then(response=>setWeather(response?.data));
+    getCurrentWeather().then((response) => setWeather(response?.data));
     // setIsLoading(false);
     return () => {
       abortController.abort();
     };
   }, []);
 
-  const state = { weather, setWeather };
+  const state = { weather, setWeather, error, setError };
 
   return (
     <WeatherContext.Provider value={state}>{children}</WeatherContext.Provider>

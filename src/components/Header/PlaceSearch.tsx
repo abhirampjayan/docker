@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { IoSearchOutline } from 'react-icons/io5';
-import { useWeather } from '../hooks/useWeather';
-import { useWeatherContext } from '../hooks/useWeatherContext';
-import { usePlaceSearchContext } from '../hooks/usePlaceSearchContext';
+import { usePlaceSearchContext } from '../../hooks/usePlaceSearchContext';
 
 type Props = {};
 
@@ -21,7 +19,7 @@ const PlaceSearch: React.FC<Props> = () => {
         id="search"
         placeholder="Search City"
         value={cityText}
-        onChange={(e) => setCityText(e.target.value)}
+        onChange={(e) => setCityText!(e.target.value)}
         className="border-solid border bg-transparent py-2 px-4 rounded-full placeholder:text-gray-100 outline-none w-80"
       />
       <button className="p-4" type="submit">

@@ -1,32 +1,30 @@
-import { Children, FC, PropsWithChildren, createContext, useState } from 'react';
+import { FC, PropsWithChildren, createContext, useState } from 'react';
 import { useWeather } from '../hooks/useWeather';
+import { useWeatherContext } from '../hooks/useWeatherContext';
 
 interface IPlaceSearchContext {
   cityText: string;
-  error: string;
-  onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
-  setCityText: React.Dispatch<React.SetStateAction<string>>;
+  onSubmit?: (event: React.FormEvent<HTMLFormElement>) => void;
+  setCityText?: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const PlaceSearchContext = createContext<IPlaceSearchContext>({
   cityText: '',
-  error: '',
-  onSubmit: (event: React.FormEvent<HTMLFormElement>) => {},
-  setCityText: () => {},
 });
 
-const PlaceSearchContextProvider: FC<PropsWithChildren> = ({children}) => {
+const PlaceSearchContextProvider: FC<PropsWithChildren> = ({ children }) => {
   const [cityText, setCityText] = useState('');
-  const [error, setError] = useState('');
   const { getCurrentWeather } = useWeather();
-
+  const { error, setError } = useWeatherContext();
+  
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (cityText) {
-    }
+    setError && setError('');
+    if (!cityText) return;
     getCurrentWeather(cityText);
     setCityText('');
   };
+
   const value = {
     cityText,
     error,
@@ -35,7 +33,9 @@ const PlaceSearchContextProvider: FC<PropsWithChildren> = ({children}) => {
   };
 
   return (
-    <PlaceSearchContext.Provider value={value}>{children}</PlaceSearchContext.Provider>
+    <PlaceSearchContext.Provider value={value}>
+      {children}
+    </PlaceSearchContext.Provider>
   );
 };
 

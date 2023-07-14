@@ -18,7 +18,7 @@ type Props = {};
 const DetailsWidget: FC<Props> = (props) => {
   const { weather } = useWeatherContext();
   return (
-    <div className="glass h-max col-span-6 flex flex-col p-8">
+    <div className="glass h-full col-span-12 lg:col-span-6 flex flex-col p-8">
       <div className="flex flex-col">
         <h2 className="heading mb-5 text-xl">Details</h2>
         <div className="grid grid-cols-4 gap-2 place-content-center">
