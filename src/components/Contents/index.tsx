@@ -1,4 +1,3 @@
-import React from 'react';
 import MainWidget from '../MainWidget';
 import DetailsWidget from '../DetailsWidget';
 

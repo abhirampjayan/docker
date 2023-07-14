@@ -6,3 +6,10 @@ export const axiosWSInstance = axios.create({
     access_key: process.env.WEATHER_STACK_API_KEY,
   },
 });
+
+export const axiosGeoInstance = axios.create({
+  baseURL: 'https://api.geoapify.com/v1/',
+  params: {
+    apiKey: process.env.GEOAPIFY_API_KEY,
+  },
+});

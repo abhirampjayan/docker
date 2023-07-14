@@ -14,10 +14,8 @@ export const useWeather = () => {
     });
 
     if (setWeather === null) return response;
-    console.log(response.data);
     if (response.data.current) setWeather(response.data);
     else {
-      console.log('asdf : ', setError);
       setError &&
         setError(
           `We coudln\'t find a city named ${city}. Retry with valid entry.`
