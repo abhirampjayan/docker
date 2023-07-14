@@ -1,5 +1,4 @@
 import { FC, PropsWithChildren } from 'react';
-import weatherimg from '../assets/svgs/SVG/partially_cloudy.svg';
 import { useWeatherContext } from '../hooks/useWeatherContext';
 import { IoLocationOutline, IoTimeOutline } from 'react-icons/io5';
 import WeatherIcon from './WeatherIcon';
@@ -9,9 +8,6 @@ const MainWidget: FC<PropsWithChildren> = () => {
   return (
     <div className="glass col-span-6 flex flex-col h-min p-8">
       <div className="flex items-center justify-around">
-        {/* <img src={weatherimg} className="h-52" />
-         */}
-
         <div className="flex flex-col">
           <div className="flex justify-center font-medium text-2xl capitalize mb-6">
             <h2 className="flex items-center gap-2">

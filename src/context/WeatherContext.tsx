@@ -8,7 +8,7 @@ import {
 import { WeatherStackResponse } from '../types';
 import { useWeather } from '../hooks/useWeather';
 
-interface WeatherContext {
+interface IWeatherContext {
   // isLoading: boolean;
   weather: WeatherStackResponse | null;
   setWeather: React.Dispatch<
@@ -16,13 +16,13 @@ interface WeatherContext {
   > | null;
 }
 
-const init: WeatherContext = {
+const init: IWeatherContext = {
   // isLoading: false,
   weather: null,
   setWeather: null,
 };
 
-export const WeatherContext = createContext<WeatherContext | null>(init);
+export const WeatherContext = createContext<IWeatherContext | null>(init);
 
 const WeatherContextProvider: FC<PropsWithChildren> = ({ children }) => {
   const abortController = new AbortController();

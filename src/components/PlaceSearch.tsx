@@ -2,19 +2,12 @@ import React, { useState } from 'react';
 import { IoSearchOutline } from 'react-icons/io5';
 import { useWeather } from '../hooks/useWeather';
 import { useWeatherContext } from '../hooks/useWeatherContext';
+import { usePlaceSearchContext } from '../hooks/usePlaceSearchContext';
 
 type Props = {};
 
-const PlaceSearch: React.FC<Props> = (props) => {
-  const { getCurrentWeather } = useWeather();
-  const { setWeather } = useWeatherContext();
-  const [citText, setCityText] = useState<string>('');
-
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    getCurrentWeather(citText);
-    setCityText('');
-  };
+const PlaceSearch: React.FC<Props> = () => {
+  const { onSubmit, cityText, setCityText } = usePlaceSearchContext();
 
   return (
     <form
@@ -27,7 +20,7 @@ const PlaceSearch: React.FC<Props> = (props) => {
         name="search"
         id="search"
         placeholder="Search City"
-        value={citText}
+        value={cityText}
         onChange={(e) => setCityText(e.target.value)}
         className="border-solid border bg-transparent py-2 px-4 rounded-full placeholder:text-gray-100 outline-none w-80"
       />
