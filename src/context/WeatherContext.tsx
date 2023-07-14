@@ -5,7 +5,7 @@ import {
   useEffect,
   useState,
 } from 'react';
-import { GeoLocationInterface, WeatherStackResponse } from '../types';
+import { WeatherStackResponse } from '../types';
 import { useWeather } from '../hooks/useWeather';
 import { axiosGeoInstance } from '../utils/axios';
 
@@ -16,6 +16,7 @@ interface IWeatherContext {
     React.SetStateAction<WeatherStackResponse | null>
   > | null;
   setError?: React.Dispatch<React.SetStateAction<string>>;
+  setIsLoading?: React.Dispatch<React.SetStateAction<boolean>>;
   error: string;
 }
 
@@ -64,7 +65,14 @@ const WeatherContextProvider: FC<PropsWithChildren> = ({ children }) => {
     };
   }, []);
 
-  const state = { weather, setWeather, error, setError, isLoading };
+  const state = {
+    weather,
+    setWeather,
+    error,
+    setError,
+    isLoading,
+    setIsLoading,
+  };
 
   return (
     <WeatherContext.Provider value={state}>{children}</WeatherContext.Provider>

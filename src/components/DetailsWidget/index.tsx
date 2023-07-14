@@ -84,7 +84,7 @@ const DetailsWidget: FC<Props> = (props) => {
   ));
 
   return (
-    <div className="glass h-full col-span-12 xl:col-span-6 flex flex-col p-8">
+    <div className="glass h-full col-span-12 xl:col-span-6 flex flex-col min-h-[300px] p-8">
       {isLoading ? (
         <div className="flex h-full justify-center items-center">
           <Loader />

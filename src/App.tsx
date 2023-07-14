@@ -6,7 +6,7 @@ import Contents from './components/Contents';
 
 function App() {
   return (
-    <div className="bg-[url('./assets/bg1.jpg')] bg-cover bg-center flex flex-col min-w-screen gap-4 min-h-screen p-14">
+    <div className="bg-[url('./assets/bg1.jpg')] bg-cover bg-center flex flex-col min-w-screen gap-4 min-h-screen p-4 sm:p-14">
       <PlaceSearchContextProvider>
         <Header />
         <ErrorDisplay />
