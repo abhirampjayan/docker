@@ -7,7 +7,7 @@ import Loader from './Loader';
 const MainWidget: FC<PropsWithChildren> = () => {
   const { weather, isLoading } = useWeatherContext();
   return (
-    <div className="glass col-span-12 xl:col-span-6 flex flex-col h-full min-h-[300px] p-8">
+    <div className="glass bg-glass-1 col-span-12 xl:col-span-6 flex flex-col h-full min-h-[300px] p-8">
       {isLoading ? (
         <div className="flex h-full justify-center items-center">
           <Loader />

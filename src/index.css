@@ -18,13 +18,70 @@ code {
 }
 
 .glass {
-  @apply backdrop-blur-md drop-shadow-lg bg-wblack bg-opacity-20 rounded-3xl p-8;
+  @apply overflow-hidden relative z-20 drop-shadow-lg bg-opacity-20 rounded-3xl p-8;
+}
+
+.bg-glass-1::before {
+  @apply absolute w-full rotate-180 h-full from-transparent blur-xl scale-125;
+  top: 0;
+  left: 0;
+  content: '';
+  background: radial-gradient(
+      ellipse at bottom left,
+      #38bff881 30%,
+      #00000025 60%
+    ),
+    radial-gradient(ellipse at top right, #fb812aa2 1%, #00000025 30%),
+    radial-gradient(circle at 100%, #333, #333 50%, #a439ba9e 100%, #333 75%),
+    radial-gradient(
+      ellipse at center,
+      #a439ba9e 0%,
+      #00000025 5%,
+      #00000025 40%
+    );
+  z-index: -1;
+}
+
+.bg-glass-2::before {
+  @apply absolute w-full rotate-180 h-full from-transparent blur-xl scale-125;
+  top: 0;
+  left: 0;
+  content: '';
+  background: radial-gradient(
+      ellipse at top left,
+      #02ddffa2 10%,
+      #00000025 50%
+    ),
+    radial-gradient(ellipse at bottom right, #02ff5ea2 10%, #00000025 50%),
+    radial-gradient(circle at 100%, #333, #333 50%, #2ab5fba2 100%, #333 75%);
+    
+  z-index: -1;
+}
+
+.bg-glass-3::before {
+  @apply absolute w-full  h-full from-transparent blur-xl scale-125;
+  top: 0;
+  left: 0;
+  content: '';
+  background: radial-gradient(
+      ellipse at bottom left,
+      #38bff881 30%,
+      #00000025 40%
+    ),
+    radial-gradient(ellipse at top right, #3858f8 20%, #00000025 50%),
+    radial-gradient(circle at 100%, #333, #333 50%, #cf42ebad 100%, #333 75%),
+    radial-gradient(
+      ellipse at center,
+      #a439ba9e 0%,
+      #00000025 5%,
+      #00000025 40%
+    );
+  z-index: -1;
 }
 
 .heading {
   @apply font-semibold uppercase;
 }
-
 
 .sec-loading {
   height: 100%;
@@ -44,7 +101,7 @@ code {
   animation: move 0.5s linear infinite alternate-reverse;
 }
 .sec-loading .one::before {
-  content: "";
+  content: '';
   position: absolute;
   height: 55%;
   width: 55%;
