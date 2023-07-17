@@ -31,7 +31,7 @@ code {
       #38bff881 30%,
       #00000025 60%
     ),
-    radial-gradient(ellipse at top right, #fb812aa2 1%, #00000025 30%),
+    radial-gradient(ellipse at top right, #00d49e 1%, #00000025 30%),
     radial-gradient(circle at 100%, #333, #333 50%, #a439ba9e 100%, #333 75%),
     radial-gradient(
       ellipse at center,
@@ -52,8 +52,8 @@ code {
       #02ddffa2 10%,
       #00000025 50%
     ),
-    radial-gradient(ellipse at bottom right, #02ff5ea2 10%, #00000025 50%),
-    radial-gradient(circle at 100%, #333, #333 50%, #2ab5fba2 100%, #333 75%);
+    radial-gradient(ellipse at bottom right, #00d49e 10%, #00000025 50%),
+    radial-gradient(circle at 100%, #333, #333 50%, #00cefe 100%, #333 75%);
     
   z-index: -1;
 }
@@ -65,11 +65,11 @@ code {
   content: '';
   background: radial-gradient(
       ellipse at bottom left,
-      #38bff881 30%,
+      #00b7e8 30%,
       #00000025 40%
     ),
-    radial-gradient(ellipse at top right, #3858f8 20%, #00000025 50%),
-    radial-gradient(circle at 100%, #333, #333 50%, #cf42ebad 100%, #333 75%),
+    radial-gradient(ellipse at top right, #c758fd 20%, #00000025 50%),
+    radial-gradient(circle at 100%, #333, #333 50%, #ff22d8 100%, #333 75%),
     radial-gradient(
       ellipse at center,
       #a439ba9e 0%,
