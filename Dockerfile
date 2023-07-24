@@ -1,18 +1,14 @@
-FROM node:16
+FROM node:18 
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY package*.json .
 
-COPY ./src ./src
-COPY ./public ./public
-COPY ./webpack ./webpack
+RUN npm install yarn
+RUN yarn
 
-RUN npm install \
-    && npm install -g serve \
-    && npm run build \
-    && rm -fr node_modules
+COPY . .
 
-EXPOSE 3000
+RUN yarn build
 
-CMD [ "serve", "-s", "build" ]
+CMD [ "yarn", "start" ]
